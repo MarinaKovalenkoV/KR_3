@@ -1,0 +1,5 @@
+venv
+venv/
+.ideal/venv
+venv/
+.ideal/
