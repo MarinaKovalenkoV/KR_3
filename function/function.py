@@ -1,7 +1,8 @@
 import json
 import datetime
+import os
 
-my_str = r'C:\Users\manto\PycharmProjects\KR_3\src\operations.json'
+my_str= os.path.abspath(r'C:\Users\manto\PycharmProjects\KR_3\src\operations.json')
 
 
 def load_operations():
