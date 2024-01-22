@@ -1,4 +1,4 @@
-from function.function import sort_operation, sort_by_date
+from src.function import sort_operation, sort_by_date
 
 test_list = [
     {

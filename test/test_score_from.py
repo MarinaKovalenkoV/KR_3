@@ -1,4 +1,4 @@
-from function.function import score_from, score_to
+from src.function import score_from, score_to
 
 test_list_date = {"from": "Maestro 1596837868705199"}
 test_list_date_1 = {"from": "Счет 75106830613657916952"}

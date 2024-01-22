@@ -28,7 +28,7 @@ def sort_operation(i):
 
 def sort_by_date(i):
     """
-    сортирует список по ключу 'date'
+    сортирует список по ключу 'date' и отбирает последние 5
     :return dict
     """
     sortid_date = []
@@ -40,6 +40,7 @@ def sort_by_date(i):
     sortid_date.sort(key=lambda x: x.get('date'), reverse=True)
 
     for i in sortid_date:
+
         if number < 5:
             sortid_date_ok.append(i)
             number += 1

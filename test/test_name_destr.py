@@ -1,4 +1,4 @@
-from function.function import name_description, operationAmount
+from src.function import name_description, operationAmount
 
 test_list = {
     "id": 596171168,
