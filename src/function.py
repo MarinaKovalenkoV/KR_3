@@ -2,11 +2,10 @@ import json
 import datetime
 import os
 
-my_str= os.path.abspath(r'C:\Users\manto\PycharmProjects\KR_3\src\operations.json')
-
 
 def load_operations():
     """функция распаковывающая файл с операциями"""
+    my_str = os.path.dirname(__file__)+'/operations.json'
     with open(my_str, 'r', encoding='utf-8') as file:
         operation = json.load(file)
         return operation
@@ -14,19 +13,17 @@ def load_operations():
 
 def sort_operation(i):
     """
-    функция которая вытаскивает 5 удачных операций в словарь
+    функция которая вытаскивает удачныe операции в словарь
     :return dict
     """
     last_operatoins = []
-    number = 0
     for item in i:
-        if number < 5:
-            for k, i in item.items():
-                if i == 'EXECUTED':
-                    last_operatoins.append(item)
-                    number += 1
+        for k, i in item.items():
+            if i == 'EXECUTED':
+                last_operatoins.append(item)
 
     return last_operatoins
+
 
 
 def sort_by_date(i):
@@ -35,15 +32,21 @@ def sort_by_date(i):
     :return dict
     """
     sortid_date = []
+    sortid_date_ok = []
+    number = 0
     for d in i:
         if d.get('date'):
             sortid_date.append(d)
     sortid_date.sort(key=lambda x: x.get('date'), reverse=True)
-    return sortid_date
 
+    for i in sortid_date:
+        if number < 5:
+            sortid_date_ok.append(i)
+            number += 1
+        else:
+            break
 
-completed_operations = sort_operation(load_operations())
-last_operation = sort_by_date(completed_operations)
+    return sortid_date_ok
 
 
 def score_from(i):
